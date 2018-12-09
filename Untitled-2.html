@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>가로스크롤</title>
+
+	<style type="text/css">
+
+		body{background: skyblue;}
+
+		#sun{ width:50px; height:50px; background: white; border-radius: 50%;position: absolute;left: 600px;top:50px; box-shadow: 0px 0px 30px white;}
+
+		#back{ width:7000px; height:400px; background:url('img/back.png'); background-size:auto 400px;position: absolute; bottom: 0; }
+
+		#walk{width:200px; height:300px; background: url('img/walk.gif');background-size:cover;position: fixed; bottom: 0;left:calc(50% - 100px);}
+
+		.sign{width:400px; height:300px; background: url('signs.png');background-size:cover;position: absolute; bottom: 0;}
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="sun"></div>
+
+	<div id="back"></div> 
+
+	<div id="walk"></div>
+
+	<div class="sign" style="left:1500px"></div>
+
+	<div class="sign" style="left:3000px"></div>
+
+	<div class="sign" style="left:4500px"></div>
+
+	<div class="sign" style="left:7000px"></div>
+
+	<div class="sign" style="left:8500px"></div>
+
+	<script type="text/javascript">
+
+window.onwheel = function(e){
+
+	var scroll = 100;
+
+	if(e.deltaY < 0){ scroll = -scroll; } 
+
+	window.scrollBy(scroll, 0);	
+
+      //여기까지는 가로방향 스크롤
+
+
+
+ //1. 한개의 오브젝트 id를 가지고 패럴렉스
+
+	//먼저 전체 폭대비 현재 위치의 비율을 구한다.
+
+	var ratio = window.pageXOffset / 7000;
+
+	
+
+	//해당 오브젝트가 움직일 전체 거리를 설정한다.
+
+	var distanceSun = 100;
+
+	//지금 오브젝트가 있어야 할 위치는 비율과 전체거리를 곱한 값이다.
+
+	var dSun = window.pageXOffset - distanceSun*ratio;
+
+	sun.style.transform = "translateX("+ dSun +"px)";
+
+
+
+	//2. 클래스를 사용해 여러가지 오브젝트에 동시에 적용하기
+
+	var x = document.getElementsByClassName("sign");
+
+	for(var i=0; i<x.length; i++){
+
+	 	var distanceSign = 10000;
+
+	 	var dSign = window.pageXOffset - distanceSign*ratio;
+
+	 	x[i].style.transform = "translateX("+ dSign +"px)";
+
+	}
+
+
+
+	
+
+	//3. id와 거리를 사용한 경우의 함수를 만들어봅시다.
+
+	function parallax(id,distance){
+
+		var dSign = window.pageXOffset - distance*ratio;
+
+		var t = document.getElementById(id);
+
+		t.style.transform = "translateX("+ dSign +"px)";
+
+	}
+
+
+
+	//4. class를 사용한 경우를 함수로 만들어봅시다.
+
+	function parallaxC(className,distance){
+
+		var dSign = window.pageXOffset - distance*ratio;
+
+		var t = document.getElementsByClassName(className);
+
+		for(var i=0; i<t.length; i++){
+
+			t[i].style.transform = "translateX("+ dSign +"px)";	
+
+		}
+
+	}
+
+
+
+	//parallax("sun",100); //함수로 만들어 간편하게 적용
+
+	//parallaxC("sign",14000); //클래스를 함수로
+
+
+
+}
+
+	</script>
+
+</body>
+
+</html>

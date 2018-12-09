@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>무제 문서</title>
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Song+Myung');
+	@FONT-FACE{
+	font-family: "휴먼엑스포", "한컴돋움", "SM견출고딕 Std Regular", "SM견출명조 Std Regular";
+	src: url('HMFMMUEX_0.ttf','HDOTUM_0.ttf','SMKGothicStd-Regular.otf','SMKMyungJoStd-Regular.otf');
+	}
+		body{background-color:blue; overflow-x:hidden;}	
+	#ziry{position: absolute; top:0; left:0; padding:20px; font-family: 'SM견출명조 Std Regular', serif; font-size: 100px;font-weight:700;line-height:120px; color:white}
+	#ziry2{width:970px; height:800px;position: absolute; top: 270px; left:480px; padding:20px; font-family: 'SM견출명조 Std Regular', serif; font-size: 2em; font-weight:500; line-height:1.5em; background-color:red;}
+	#txt{width:900px; height:200px; position:absolute; top:600px; left:10px; color:white; font-family: 'SM견출고딕 Std Regular', "한컴돋움"; font-size: 1em; line-height:1em;}
+		
+.center {width:600px;
+  position: absolute;
+  top:100px; bottom:0;
+  left:400px; right:0;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  opacity: 0.99;
+  font-family: 'SM견출명조 Std Regular', serif;
+  font-size: 50px;
+  text-align: center;}
+		
+		.numberD{ color:white; font-size: 3em; font-family: 'SM견출명조 Std Regular', serif;}
+		#word{position:absolute; top:170px; left:1300px;}
+		#worda{position:absolute; top:90px; left:1300px;}
+		#wordb{position:absolute; top:10px; left:1300px;}
+		#wordc{position:absolute; top:170px; left:1100px;}
+		#wordd{position:absolute; top:90px; left:1100px;}
+		#worde{position:absolute; top:10px; left:1100px;}
+		#wordf{position:absolute; top:170px; left:900px;}
+		#wordg{position:absolute; top:90px; left:900px;}
+		#wordh{position:absolute; top:10px; left:900px;}
+		#wordi{position:absolute; top:170px; left:700px;}
+		#wordj{position:absolute; top:90px; left:700px;}
+		#wordk{position:absolute; top:10px; left:700px;}
+		#wordl{position:absolute; top:170px; left:500px;}
+		#wordm{position:absolute; top:90px; left:500px;}
+		#wordn{position:absolute; top:10px; left:500px;}
+		
+
+	</style>
+</head>
+
+<body>
+	
+	<div id = "red"></div>
+	<div id="ziry"> 對공작원<br>교신법</div>
+	<div id="ziry2"> 1. 매 시 정각에 방송을 시작한다. 방송은 발신원에서 재생하는 임의의 음악이 재생된 이후 시작한다. <br><br>2. 해당 전문의 호수와 조수를 알린다.<br>(ex)1204호, 1204호, 전문 받으세요. 조수 12조, 조수 12조. 전문 부르겠습니다.)<br><br>3. 첫 번째 전문을 부른다. 보통 5자리이며 이 때 전문은 X백 X십 X + X십 X, 혹은 X십 X + X백 X십 X로 부른다.<br><br>4. 전문 을 모두 부르면 재송신을 알리고 XXXX혹은 XXXXX의 형식으로 전문을 다시 부른다.<br>(ex)본문 다시 부르겠습니다. X만 X천 X백 X십 X) <br><br>5. 방송의 송신이 끝났음을 알린다. (ex)이상입니다. 감사합니다)<br><br>
+	</div>
+	
+	<div class = "numberD" id="word"></div>
+	<div class = "numberD" id="worda"></div>
+	<div class = "numberD" id="wordb"></div>
+	<div class = "numberD" id="wordc"></div>
+	<div class = "numberD" id="wordd"></div>
+	<div class = "numberD" id="worde"></div>
+	<div class = "numberD" id="wordf"></div>
+	<div class = "numberD" id="wordg"></div>
+	<div class = "numberD" id="wordh"></div>
+	<div class = "numberD" id="wordi"></div>
+	<div class = "numberD" id="wordj"></div>
+	<div class = "numberD" id="wordk"></div>
+	<div class = "numberD" id="wordl"></div>
+	<div class = "numberD" id="wordm"></div>
+	<div class = "numberD" id="wordn"></div>
+	
+	
+	<script type="text/javascript">
+
+		var words = document.getElementsByClassName("numberD");
+		
+		function ranNum(){
+			for(var i=0; i<words.length; i++){
+				words[i].innerHTML = randomBH(10000,99999);
+			}	
+		}
+		
+		setInterval(ranNum, 1000);
+  
+
+		function randomBH(min, max) {
+  			min = Math.ceil(min);
+  			max = Math.floor(max);
+  			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+		
+function random_hangul() {
+	return String.fromCharCode( 44031 + Math.ceil( 11172 * Math.random() ) );
+}
+
+for( var i=0; i<20; i++ ) {
+	document.getElementById("txt").innerHTML= "① "+random_hangul() + random_hangul() + random_hangul() + random_hangul() + random_hangul()+"② "+random_hangul() + random_hangul() + random_hangul() + random_hangul() + random_hangul()+"③ "+random_hangul() + random_hangul() + random_hangul() + random_hangul() + random_hangul()+"④ "+random_hangul() + random_hangul() + random_hangul() + random_hangul() + random_hangul()+"⑤ "+random_hangul() + random_hangul() + random_hangul() + random_hangul() + random_hangul();
+}
+	</script>
+</body>
+</html>
